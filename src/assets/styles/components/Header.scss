@@ -1,17 +1,15 @@
-body {
-  margin: 0;
-  font-family: 'Muli', sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.menu {
+.header {
   align-items: center;
+  background: black;
+  color: white;
   display: flex;
   height: 100px;
   justify-content: space-between;
   top: 0px;
   width: 100%;
+}
+
+.header__img {
+  margin-left: 30px;
+  width: 140px;
 }
