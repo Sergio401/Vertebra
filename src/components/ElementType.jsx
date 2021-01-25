@@ -2,7 +2,9 @@ import React from 'react';
 import '../assets/styles/components/ElementType.scss';
 import { Form, FormControl, FormGroup, FormLabel, Col, Row  } from 'react-bootstrap';
 
-const ElementType = () => (
+const ElementType = (props) => {
+
+    return(
     <div className='elementType'>
         <Form>
             <FormGroup as={Row} controlId="formPlaintextEmail">
@@ -11,15 +13,12 @@ const ElementType = () => (
                 </FormLabel>
                 <Col sm="8">
                     <FormControl as="select">
-                        <option>Productos</option>
-                        <option>Proveedores</option>
-                        <option>Tiendas</option>
-                        <option>Inventario tienda</option>
+                        { elements }
                     </FormControl>
                 </Col>
             </FormGroup>
         </Form>
     </div>
-);
+)};
 
 export default ElementType

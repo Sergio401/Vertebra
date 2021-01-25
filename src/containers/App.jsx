@@ -1,31 +1,34 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import { connect } from 'react-redux';
 import Header from "../components/Header";
-import Table from "../components/Table";
 import '../assets/styles/App.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ElementType from "../components/ElementType";
 import ButtonsCRUD from "../components/ButtonsCRUD";
 import Menu from "../components/Menu";
 
-const App = () => {
-    const [ item, setItem ] = useState([{ products: [], provider: [], shops: [], inventory: []}])
+const App = (state) => {
 
-    useEffect(() => {
-        fetch('http://localhost:3000/initialState')
-            .then(response => response.json())
-            .then(data => setItem(data));
-    }, []);
-
-    console.log(item)
+    const elements = Object.keys(state);
 
     return(
         <div className="App">
             <Header />
             <Menu>
-                <ElementType />
+                <ElementType elements = { elements } />
                 <ButtonsCRUD />
             </Menu>
         </div>
     )};
 
-export default App;
+
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+        provider: state.provider,
+        shops: state.shops,
+        inventory: state.inventory
+    }
+}
+
+export default connect(mapStateToProps, null)(App)
