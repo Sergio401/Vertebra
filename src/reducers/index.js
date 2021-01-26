@@ -1,5 +1,13 @@
 const reducer = (state, action) => {
-    return state;
+    switch (action.type){
+        case 'ELEMENT_TYPE_REQUEST':
+            return {
+                ...state,
+                option: action.payload,
+            }
+        default:
+            return state;
+    }
 }
 
 export default reducer;

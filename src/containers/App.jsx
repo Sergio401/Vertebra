@@ -10,6 +10,10 @@ import Menu from "../components/Menu";
 const App = (state) => {
 
     const elements = Object.keys(state);
+    elements.pop(); elements.pop();
+
+    console.log(state)
+    console.log(state.option)
 
     return(
         <div className="App">
@@ -24,10 +28,11 @@ const App = (state) => {
 
 const mapStateToProps = state => {
     return {
-        products: state.products,
-        provider: state.provider,
-        shops: state.shops,
-        inventory: state.inventory
+        Productos: state.products,
+        Proveedor: state.provider,
+        Tiendas: state.shops,
+        Inventario: state.inventory,
+        option: state.option,
     }
 }
 
