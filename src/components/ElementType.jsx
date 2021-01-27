@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import '../assets/styles/components/ElementType.scss';
 import { Form, FormControl, FormGroup, FormLabel, Col, Row  } from 'react-bootstrap';
@@ -6,24 +6,11 @@ import {elementTypeRequest} from "../actions";
 
 const ElementType = (props) => {
 
-    const [form, setValues] = useState({
-        option: '',
-    })
-
-    const handleOption = event => {
-        setValues({
-            ...form,
-            [event.target.name]: event.target.value,
-        })
+    const handleChange = event => {
+        props.elementTypeRequest(event.target.value)
     }
 
-    const handleSelect = () => {
-        props.elementTypeRequest(form)
-    }
-
-    handleSelect();
-
-    const elements = props.elements.map((element, index) => <option key={index}>{ element }</option>)
+    const elements = props.elements.map((element, index) => <option key={index}>{element}</option>)
 
     return(
         <div className='elementType'>
@@ -33,7 +20,8 @@ const ElementType = (props) => {
                         Elemento
                     </FormLabel>
                     <Col sm="8">
-                        <FormControl as="select" name="option" onChange={handleOption}>
+                        <FormControl as="select" name="option" onChange={handleChange}>
+                            <option hidden>Selecciona un elemento</option>
                             { elements }
                         </FormControl>
                     </Col>
@@ -44,7 +32,7 @@ const ElementType = (props) => {
 )};
 
 const mapDispatchToProps = {
-    elementTypeRequest,
+    elementTypeRequest
 }
 
 export default connect(null, mapDispatchToProps)(ElementType)

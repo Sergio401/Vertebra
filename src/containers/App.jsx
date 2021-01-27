@@ -5,23 +5,39 @@ import '../assets/styles/App.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ElementType from "../components/ElementType";
 import ButtonsCRUD from "../components/ButtonsCRUD";
-import Menu from "../components/Menu";
+import TableProducts from "../components/TableProducts";
 
 const App = (state) => {
 
-    const elements = Object.keys(state);
-    elements.pop(); elements.pop();
+    const elements = Object.keys(state).slice(0, 4);
 
-    console.log(state)
-    console.log(state.option)
+    const chooseTable = (selector, arrayKey) => {
+        switch (selector){
+            case arrayKey[0]:
+                return state.Productos
+            case arrayKey[1]:
+                return state.Proveedor
+            case arrayKey[2]:
+                return state.Tiendas
+            case arrayKey[3]:
+                return state.Inventario
+            default: console.log("Pending to choose")
+        }
+    }
+
+    let renderTable = chooseTable(state.option, elements)
 
     return(
         <div className="App">
             <Header />
-            <Menu>
-                <ElementType elements = { elements } />
+            <div className="container menu mt-5">
+                <ElementType elements = {elements}/>
                 <ButtonsCRUD />
-            </Menu>
+            </div>
+            <div className="container mt-5">
+                <TableProducts renderTable = {renderTable || ""} />
+            </div>
+
         </div>
     )};
 
@@ -32,7 +48,7 @@ const mapStateToProps = state => {
         Proveedor: state.provider,
         Tiendas: state.shops,
         Inventario: state.inventory,
-        option: state.option,
+        option: state.option
     }
 }
 
