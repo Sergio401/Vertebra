@@ -5,14 +5,20 @@ import { Table } from 'react-bootstrap'
 const TableProducts = (props) => {
 
     const keys =
-        Object
-            .keys(props.renderTable)
+        props.renderTable
+            .map((element) => Object.keys(element)).slice(0,1)[0]
             .map((element, index) => <th key={index}>{element}</th>)
 
-    const valuesTable =
-        Object
-            .values(props.renderTable)
-            .map((element, index) => <td key={index}>{element}</td>)
+
+    let renderElementTable =
+        props.renderTable.map((item, index) => (
+            <tr key={index}>
+                {Object.values(item).map((val, index) =>
+                    <td key={index}>{val}</td>
+                )}
+            </tr>
+        ))
+
 
     return(
         <Table striped bordered hover>
@@ -22,11 +28,10 @@ const TableProducts = (props) => {
             </tr>
             </thead>
             <tbody>
-            <tr>
-                { valuesTable }
-            </tr>
+                { renderElementTable }
             </tbody>
         </Table>
+
 )};
 
 export default TableProducts

@@ -21,7 +21,6 @@ const ElementType = (props) => {
                     </FormLabel>
                     <Col sm="8">
                         <FormControl as="select" name="option" onChange={handleChange}>
-                            <option hidden>Selecciona un elemento</option>
                             { elements }
                         </FormControl>
                     </Col>
