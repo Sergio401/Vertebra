@@ -8,31 +8,65 @@ import reducer from './reducers'
 const initialState = {
     "products": [
         {
-            "ID": 1,
             "Nombre": "Chocorramo",
             "Descripción": "Gala con chocolate",
             "SKU": "DEPOR-XYZ-BLN-41",
             "Unidad": "gramo",
+            "Cantidad": 4,
+            "Refrigerado": "true",
+            "Relación": "simple"
+        },
+        {
+            "Nombre": "Gansito",
+            "Descripción": "Chocorramo pequeño",
+            "SKU": "DEPOR-XYZ-BLN-41",
+            "Unidad": "onza",
             "Cantidad": 2,
             "Refrigerado": "true",
             "Relación": "simple"
         },
         {
-            "ID": 2,
-            "Nombre": "Chocorramo",
-            "Descripción": "Gala con chocolate",
+            "Nombre": "Marinela",
+            "Descripción": "Gansito fansi",
             "SKU": "DEPOR-XYZ-BLN-41",
-            "Unidad": "gramo",
-            "Cantidad": 2,
+            "Unidad": "cucharada",
+            "Cantidad": 1,
             "Refrigerado": "true",
             "Relación": "simple"
-        }
+        },
+        {
+            "Nombre": "Ponque ramo",
+            "Descripción": "Gala grande",
+            "SKU": "DEPOR-XYZ-BLN-41",
+            "Unidad": "electronVoltios",
+            "Cantidad": 5,
+            "Refrigerado": "true",
+            "Relación": "simple"
+        },
     ],
     "provider": [
         {
-            "Nit": 42342345434534,
+            "Nit": 423423454,
             "Nombre": "Vlog de Vlacho",
             "Representante legal": "Vladimir",
+            "Dirección": "Cra 12 #36-63"
+        },
+        {
+            "Nit": 963423434,
+            "Nombre": "Liliana Fonseca",
+            "Representante legal": "Liliana",
+            "Dirección": "Cra 12 #36-63"
+        },
+        {
+            "Nit": 653423454,
+            "Nombre": "Vlog de Vlacho",
+            "Representante legal": "Vladimir",
+            "Dirección": "Cra 12 #36-63"
+        },
+        {
+            "Nit": 423423454,
+            "Nombre": "Sebastian",
+            "Representante legal": "Sebastian gonzalez",
             "Dirección": "Cra 12 #36-63"
         }
     ],
@@ -41,6 +75,28 @@ const initialState = {
             "Nombre": "Doña Ceci",
             "Dirección": "Cra 12 #36-63",
             "Manager": "Cecilia Jaramillo",
+            "No neveras": 1,
+            "No pasillos": 5,
+            "No de cajas": 30,
+            "No pisos": 1,
+            "Metros cuadrados": 48,
+            "Servicios extra": "pago servicios"
+        },
+        {
+            "Nombre": "Doña Amparo",
+            "Dirección": "Cra 12 #36-63",
+            "Manager": "Cecilia Jaramillo",
+            "No neveras": 3,
+            "No pasillos": 4,
+            "No de cajas": 40,
+            "No pisos": 1,
+            "Metros cuadrados": 18,
+            "Servicios extra": "pago servicios"
+        },
+        {
+            "Nombre": "La facultad",
+            "Dirección": "Cra 12 #36-63",
+            "Manager": "Vasdasd",
             "No neveras": 2,
             "No pasillos": 2,
             "No de cajas": 30,
@@ -55,7 +111,21 @@ const initialState = {
             "Cantidad": 30,
             "Fecha de Vencimiento": "02/02/2022",
             "Fecha de Compra": "02/02/2021",
+            "Descuento": 2
+        },
+        {
+            "Relación con producto": "compleja",
+            "Cantidad": 3,
+            "Fecha de Vencimiento": "02/02/2022",
+            "Fecha de Compra": "02/02/2021",
             "Descuento": 20
+        },
+        {
+            "Relación con producto": "simple",
+            "Cantidad": 40,
+            "Fecha de Vencimiento": "02/02/2021",
+            "Fecha de Compra": "02/02/2018",
+            "Descuento": 10
         }
     ]
 }
