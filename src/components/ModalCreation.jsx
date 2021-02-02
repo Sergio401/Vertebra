@@ -18,7 +18,6 @@ const ModalCreation = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        console.log("hola perra vida")
         console.log(event.target.value)
     }
 
