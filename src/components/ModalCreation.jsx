@@ -1,14 +1,12 @@
 import React from "react";
 import '../assets/styles/components/ButtonsCRUD.scss';
-import {Modal, Button, Form, Col, FormGroup} from "react-bootstrap";
+import {Modal, Button, Form, Col, FormGroup, ModalBody, ModalTitle} from "react-bootstrap";
 import ModalHeader from "react-bootstrap/ModalHeader";
-import ModalBody from "react-bootstrap/ModalBody";
-import ModalTitle from "react-bootstrap/ModalTitle";
 
 const ModalCreation = (props) => {
 
     const elementsForms =
-        props.renderTable
+        props.rendertable
             .map((element) => Object.keys(element)).slice(0,1)[0]
             .map((element, index) =>
                 <FormGroup key={index} as={Col} controlId={element}>

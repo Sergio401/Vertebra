@@ -1,37 +1,36 @@
 import React from "react";
 import { connect } from 'react-redux';
-import '../assets/styles/App.scss'
+import '../assets/styles/Home.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from "../components/Header";
 import TableProducts from "../components/TableProducts";
 import ElementType from "../components/ElementType";
 import ModalCreation from "../components/ModalCreation";
 import {Button, Row} from "react-bootstrap";
 
+const Home = ({ products, provider, inventory, shops, option }) => {
 
-const App = (state) => {
-
-    const elements = Object.keys(state).slice(0, 4);
-    const [modalShow, setModalShow] = React.useState(false);
-
+    // Render Table
+    const elements = ["Productos", "Proveedor", "Tiendas", "Invetario"]
     const chooseTable = (selector, arrayKey) => {
         switch (selector){
             case arrayKey[0]:
-                return state.Productos
+                return products
             case arrayKey[1]:
-                return state.Proveedor
+                return provider
             case arrayKey[2]:
-                return state.Tiendas
+                return shops
             case arrayKey[3]:
-                return state.Inventario
+                return inventory
         }
     }
 
-    let renderTable = chooseTable(state.option, elements)
+    let renderTable = chooseTable(option, elements)
+
+    //Modal
+    const [modalShow, setModalShow] = React.useState(false);
 
     return(
-        <div className="App">
-            <Header />
+        <>
             <div className="container menu mt-5">
                 <ElementType elements = {elements}/>
                 <Row>
@@ -41,27 +40,28 @@ const App = (state) => {
                 </Row>
             </div>
             <div className="container mt-5">
-                <TableProducts renderTable = {renderTable || state.Productos}/>
+                <TableProducts renderTable = {renderTable || products}/>
             </div>
 
             <ModalCreation
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 elements = {elements}
-                renderTable = {renderTable || state.Productos}
+                rendertable = {renderTable || products}
             />
-        </div>
+        </>
     )};
 
 
 const mapStateToProps = state => {
     return {
-        Productos: state.products,
-        Proveedor: state.provider,
-        Tiendas: state.shops,
-        Inventario: state.inventory,
-        option: state.option
+        products: state.products,
+        provider: state.provider,
+        shops: state.shops,
+        inventory: state.inventory,
+        option: state.option,
     }
 }
 
-export default connect(mapStateToProps, null)(App)
+
+export default connect(mapStateToProps, null)(Home)

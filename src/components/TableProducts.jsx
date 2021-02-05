@@ -4,6 +4,8 @@ import { Table } from 'react-bootstrap'
 
 const TableProducts = (props) => {
 
+    console.log(props)
+
     const keys =
         props.renderTable
             .map((element) => Object.keys(element)).slice(0,1)[0]

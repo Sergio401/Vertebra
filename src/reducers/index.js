@@ -1,3 +1,5 @@
+import { reducer as modal } from 'redux-modal'
+
 const reducer = (state, action) => {
     switch (action.type){
         case 'ELEMENT_TYPE_REQUEST':
@@ -5,21 +7,12 @@ const reducer = (state, action) => {
                 ...state,
                 option: action.payload,
             }
-        case 'SHOW_MODAL':
+
+        case 'TOGGLE_MODAL':
             return {
-                ...state,
-                modalType: action.payload,
-                modalProps: action.payload,
-                type: action.type
+                modal,
             }
-        case 'HIDE_MODAL':
-            return {
-                ...state,
-                modalType: null,
-                modalProps: {
-                    open: false
-                }
-            }
+
         default:
             return state;
     }

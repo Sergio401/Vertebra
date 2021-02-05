@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./containers/App";
+import App from "./routes/App";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers'
@@ -127,7 +127,8 @@ const initialState = {
             "Fecha de Compra": "02/02/2018",
             "Descuento": 10
         }
-    ]
+    ],
+    modalState: false
 }
 
 const store = createStore(reducer, initialState)
