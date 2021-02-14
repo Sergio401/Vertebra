@@ -13,6 +13,12 @@ const reducer = (state, action) => {
                 modal,
             }
 
+        case 'NEW_ELEMENT':
+            return {
+                ...state,
+                newElement: action.payload,
+            }
+
         default:
             return state;
     }

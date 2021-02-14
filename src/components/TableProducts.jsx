@@ -1,10 +1,9 @@
 import '../assets/styles/components/Table.scss'
 import React from "react";
 import { Table } from 'react-bootstrap'
+import "../assets/styles/components/Table.scss";
 
 const TableProducts = (props) => {
-
-    console.log(props)
 
     const keys =
         props.renderTable
@@ -23,7 +22,7 @@ const TableProducts = (props) => {
 
 
     return(
-        <Table striped bordered hover>
+        <Table striped bordered hover responsive="md">
             <thead>
             <tr>
                 { keys }

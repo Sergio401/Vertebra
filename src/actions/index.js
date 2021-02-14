@@ -3,3 +3,8 @@ export const elementTypeRequest = payload => ({
     payload
 });
 
+export const newProduct = payload => ({
+    type: 'NEW_ELEMENT',
+    payload
+});
+
