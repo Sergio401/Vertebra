@@ -2,13 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from "./routes/App";
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './reducers'
-import state from '../initialState.json'
-
-const initialState = state
-
-const store = createStore(reducer, initialState)
+import store from "./store";
 
 ReactDOM.render(
 
@@ -17,3 +11,4 @@ ReactDOM.render(
     </Provider>,
 
     document.getElementById('app'));
+

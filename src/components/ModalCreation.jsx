@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import '../assets/styles/components/ButtonsCRUD.scss';
 import {Modal, Button, Form, Col, FormGroup, ModalBody, ModalTitle} from "react-bootstrap";
 import ModalHeader from "react-bootstrap/ModalHeader";
-import {newProduct} from "../actions";
+import {addItem} from "../actions";
+
 
 const ModalCreation = props => {
 
     const [form, setValues] = useState({})
-    const { newProduct, ...rest } = props
+    const { newProduct, renderTable, elements, option, ...rest } = props
+    const keyElements = renderTable.map((element) => Object.keys(element)).slice(0,1)[0]
 
     const handleInput = event => {
         setValues({
@@ -17,13 +19,25 @@ const ModalCreation = props => {
         })
     }
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        console.log(form)
-        props.product(form)
+    const getKey = (option, elements) => {
+        switch (option){
+            case elements[0]:
+                return "products"
+            case elements[1]:
+                return "provider"
+            case elements[2]:
+                return "shops"
+            case elements[3]:
+                return "inventory"
+        }
     }
 
-    const keyElements = props.rendertable.map((element) => Object.keys(element)).slice(0,1)[0]
+    let key = getKey(option, elements)
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        props.addItem(form)
+    }
 
     const elementsForms =
         keyElements
@@ -60,7 +74,7 @@ const ModalCreation = props => {
 };
 
 const mapDispatchToProps = {
-    newProduct,
+    addItem,
 }
 
 export default connect(null, mapDispatchToProps)(ModalCreation)

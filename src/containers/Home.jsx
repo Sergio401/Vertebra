@@ -25,7 +25,6 @@ const Home = ({ products, provider, inventory, shops, option }) => {
     }
 
     let renderTable = chooseTable(option, elements)
-
     //Modal
     const [modalShow, setModalShow] = React.useState(false);
 
@@ -47,7 +46,8 @@ const Home = ({ products, provider, inventory, shops, option }) => {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 elements = {elements}
-                rendertable = {renderTable || products}
+                option = {option}
+                renderTable = {renderTable || products}
             />
         </>
     )};
@@ -59,7 +59,7 @@ const mapStateToProps = state => {
         provider: state.provider,
         shops: state.shops,
         inventory: state.inventory,
-        option: state.option,
+        option: state.option
     }
 }
 
